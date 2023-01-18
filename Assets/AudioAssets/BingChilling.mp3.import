@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BingChilling.mp3-5408ad66142522dcf300e6183966ab8f.mp3str"
+
+[deps]
+
+source_file="res://Assets/AudioAssets/BingChilling.mp3"
+dest_files=[ "res://.import/BingChilling.mp3-5408ad66142522dcf300e6183966ab8f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
