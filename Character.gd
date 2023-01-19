@@ -28,7 +28,11 @@ func move() -> void:
 
 func take_damage(dam: int) -> void:
 	hp -= dam
-	#state_machine.set_state(state_machine.states.hurt)
-	
+
+
+func death_check() -> void:
+	if hp <= 0:
+		visible = false
+		print("ded")
 	
 	

@@ -33,19 +33,13 @@ _global_script_classes=[ {
 "class": "Hitbox",
 "language": "GDScript",
 "path": "res://Hitbox.gd"
-}, {
-"base": "Area2D",
-"class": "Hurtbox",
-"language": "GDScript",
-"path": "res://Hurtbox.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
 "Enemy": "",
 "EnemyStateMachine": "",
 "FiniteStateMachine": "",
-"Hitbox": "",
-"Hurtbox": ""
+"Hitbox": ""
 }
 
 [application]
@@ -114,8 +108,10 @@ ui_attack={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
-2d_physics/layer_4="Hitbox"
-2d_physics/layer_5="Hurtbox"
+2d_physics/layer_4="Player Hitbox"
+2d_physics/layer_5="Player Hurtbox"
+2d_physics/layer_6="Enemy Hitbox"
+2d_physics/layer_7="Enemy Hurtbox"
 
 [physics]
 

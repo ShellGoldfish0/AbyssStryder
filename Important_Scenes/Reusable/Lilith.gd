@@ -11,6 +11,7 @@ func _physics_process(delta: float) ->void:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < position.x and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
+	death_check()
 	
 	
 	

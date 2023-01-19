@@ -1,9 +1,9 @@
 extends Area2D
-class_name Hurtbox
+
 
 var kb_d 
 var kb_f = 3
-var dam = 10
+var player = get_parent()
 
 func _init() -> void:
 	collision_layer = 0
@@ -20,6 +20,6 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 	if owner.has_method("take_damage"):
 		print("killed")
 		print(kb_f)
-		#kb_d = get_global_mouse_position() - global_position.normalized()
-		owner.take_damage(dam)
-		print(owner.health)
+		var damage = hitbox.damage
+		owner.take_damage(damage)
+		print(owner.hp)
