@@ -12,8 +12,6 @@ export  var min_cave_size = 80
 var exploSlug = load("res://Important_Scenes/Reusable/Slug.tscn")
 
 var playerCharacter = load("res://Important_Scenes/Reusable/Lilith.tscn")
-
-var health = load("res://Important_Scenes/Items/Health_Crystal.tscn")
 #export(bool) var redraw  setget redraw
 
 enum Tiles { GROUND, TREE, WATER, ROOF }
@@ -44,7 +42,10 @@ func generate():
 	connect_caves()
 	instance_player()
 	instance_enemy()
+<<<<<<< HEAD
 	instance_health_crystals()
+=======
+>>>>>>> 2de88175e5ac41e0c52ca5d4fea6da0108ddd0df
 	generate_border()
 	update_bitmask()
 
@@ -262,6 +263,7 @@ func generate_border():
 	for x in range(-10, map_w + 10):
 		for y in range(map_h, map_h + 10):
 			set_cell(x, y, Tiles.ROOF)
+<<<<<<< HEAD
 			
 func instance_health_crystals():	
 	for cave in caves:
@@ -272,6 +274,8 @@ func instance_health_crystals():
 			var hc = health.instance()
 			hc.position = tile * 64
 			add_child(hc)
+=======
+>>>>>>> 2de88175e5ac41e0c52ca5d4fea6da0108ddd0df
 	
 func update_bitmask():
 	$".".update_bitmask_region()
