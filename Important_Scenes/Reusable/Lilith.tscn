@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Important_Scenes/Reusable/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Image_Assets/Player_Assets/knight_run_spritesheet.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://PLAYERSTATEMACHINE.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Image_Assets/World/light.png" type="Texture" id=6]
 [ext_resource path="res://Important_Scenes/Reusable/Hitbox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Important_Scenes/Reusable/Player Hurtbox.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
@@ -198,3 +199,14 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 34 )
+
+[node name="Player Hurtbox" type="Area2D" parent="." index="7"]
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="Player Hurtbox" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Hurtbox" index="1"]
+
+[connection signal="invincibility_ended" from="Player Hurtbox" to="Player Hurtbox" method="_on_Player_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Player Hurtbox" to="Player Hurtbox" method="_on_Player_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Player Hurtbox/Timer" to="Player Hurtbox" method="_on_Timer_timeout"]

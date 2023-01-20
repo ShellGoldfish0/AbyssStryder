@@ -2,12 +2,16 @@
 extends KinematicBody2D
 
 
-var speed = 600
+export var speed = 600
 #as there are multiple slugs, they're put into a group
 #the node value of the slugs are put into an array
 onready var enemies = get_tree().get_nodes_in_group("enemies")
 var kamenRide = "Sadge Man" #keeps track of what player looks like
 var target = null
+var stats = PlayerStats
+
+func _ready():
+	stats.connect("no_health", self, "queue_free")
 
 func _physics_process(_delta):
 	#lines 12-15 are inputs determining how to move the player
@@ -54,4 +58,11 @@ func _on_attackRadius_body_exited(body):
 	for enemy in enemies:
 		if body == enemy:
 			target = null
+			
+#Update player helath when entering enemy hurtbox
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invincibility(0.6)
+	
+	
 

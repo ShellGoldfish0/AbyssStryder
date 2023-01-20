@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Important_Scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Image_Assets/World/light.png" type="Texture" id=2]
+[ext_resource path="res://Hurtbox.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Image_Assets/Player_Assets/icon.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -31,3 +32,10 @@ shadow_filter = 1
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 collide_with_areas = true
+
+[node name="Player Hurtbox" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Player Hurtbox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Hurtbox"]

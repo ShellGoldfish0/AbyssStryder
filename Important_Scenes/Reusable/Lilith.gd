@@ -30,3 +30,7 @@ func get_input() -> void:
 		pass
 
 
+
+
+func _on_Player_Hurtbox_invincibility_ended():
+	pass # Replace with function body.

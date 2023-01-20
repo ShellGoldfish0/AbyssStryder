@@ -27,3 +27,11 @@ func _on_Hurtbox_invincibility_started():
 
 func _on_Hurtbox_invincibility_ended():
 	collisionShape.disabled = false
+
+
+func _on_Player_Hurtbox_invincibility_started():
+	collisionShape.set_deferred("disabled", true)
+
+
+func _on_Player_Hurtbox_invincibility_ended():
+	pass # Replace with function body.
