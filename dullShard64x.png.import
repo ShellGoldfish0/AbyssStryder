@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GlowGrass.png-31a95fd35b615fb57774e57bb5ece371.stex"
+path="res://.import/dullShard64x.png-373ea535fb8caec576dc12b172019980.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Image_Assets/World/GlowGrass.png"
-dest_files=[ "res://.import/GlowGrass.png-31a95fd35b615fb57774e57bb5ece371.stex" ]
+source_file="res://dullShard64x.png"
+dest_files=[ "res://.import/dullShard64x.png-373ea535fb8caec576dc12b172019980.stex" ]
 
 [params]
 
