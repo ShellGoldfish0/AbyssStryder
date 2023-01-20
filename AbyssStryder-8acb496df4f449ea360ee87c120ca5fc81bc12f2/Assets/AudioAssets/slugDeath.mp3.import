@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/slugDeath.mp3-ca45fa79cbc809e1e1758397d80fe409.mp3str"
+
+[deps]
+
+source_file="res://Assets/AudioAssets/slugDeath.mp3"
+dest_files=[ "res://.import/slugDeath.mp3-ca45fa79cbc809e1e1758397d80fe409.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
