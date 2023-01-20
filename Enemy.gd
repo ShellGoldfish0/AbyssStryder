@@ -35,10 +35,9 @@ func _ready():
 func _physics_process(_delta) -> void:	
 	if not visible:
 		return
-	if player != null:
-		target_location = player.position
-	if target_location == null:
-		target_location == Vector2.ZERO
+	if health <= 0:
+		queue_free()
+	target_location = player.position
 	navigation_agent.set_target_location(target_location)
 	mov_direction = position.direction_to(target_location)
 	velocity = mov_direction * max_speed
