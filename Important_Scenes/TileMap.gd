@@ -15,6 +15,7 @@ var playerCharacter = load("res://Important_Scenes/Reusable/Lilith.tscn")
 
 var health = load("res://Important_Scenes/Items/Health_Crystal.tscn")
 #export(bool) var redraw  setget redraw
+var torchlight = load("res://Important_Scenes/Reusable/torchlight.tscn")
 
 enum Tiles { GROUND, TREE, WATER, ROOF }
 
@@ -45,6 +46,7 @@ func generate():
 	instance_player()
 	instance_enemy()
 	instance_health_crystals()
+	instance_torchlight()
 	generate_border()
 	update_bitmask()
 
@@ -263,6 +265,17 @@ func generate_border():
 		for y in range(map_h, map_h + 10):
 			set_cell(x, y, Tiles.ROOF)
 			
+			
+func instance_torchlight():
+	for cave in caves:
+			var free_tiles = cave.duplicate() # dupes floor tiles
+			for _num in range(2):
+				var tile = Util.choose(free_tiles) #picking random tile.
+				free_tiles.erase(tile)
+				var tl = torchlight.instance()
+				tl.position = tile * 64
+				add_child(tl)
+
 func instance_health_crystals():	
 	for cave in caves:
 		var free_tiles = cave.duplicate() # dupes floor tiles
