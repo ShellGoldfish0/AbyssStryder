@@ -8,6 +8,40 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://Character.gd"
+}, {
+"base": "Character",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Enemy.gd"
+}, {
+"base": "FiniteStateMachine",
+"class": "EnemyStateMachine",
+"language": "GDScript",
+"path": "res://ENEMYSTATEMACHINE.gd"
+}, {
+"base": "Node",
+"class": "FiniteStateMachine",
+"language": "GDScript",
+"path": "res://STATEMACHINE.gd"
+}, {
+"base": "Area2D",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://Hitbox.gd"
+} ]
+_global_script_class_icons={
+"Character": "",
+"Enemy": "",
+"EnemyStateMachine": "",
+"FiniteStateMachine": "",
+"Hitbox": ""
+}
+
 [application]
 
 config/name="Abyss Strider"
@@ -74,8 +108,8 @@ ui_attack={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
-2d_physics/layer_4="Hitbox"
-2d_physics/layer_5="Hurtbox"
+2d_physics/layer_4="Player Hitbox"
+2d_physics/layer_5="Player Hurtbox"
 2d_physics/layer_6="Enemy Hitbox"
 2d_physics/layer_7="Enemy Hurtbox"
 
