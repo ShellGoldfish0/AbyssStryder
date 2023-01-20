@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Hitbox",
 "language": "GDScript",
 "path": "res://Hitbox.gd"
+}, {
+"base": "Area2D",
+"class": "Hurtbox",
+"language": "GDScript",
+"path": "res://Hurtbox.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
 "Enemy": "",
 "EnemyStateMachine": "",
 "FiniteStateMachine": "",
-"Hitbox": ""
+"Hitbox": "",
+"Hurtbox": ""
 }
 
 [application]
