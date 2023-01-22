@@ -7,7 +7,7 @@ func _ready():
 	target = player.position
 	animation_player.play("test")
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	on_death()
 	
@@ -28,7 +28,6 @@ func on_death():
 
 func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "death":
-		print("fuck")
 		queue_free()
 	else:
 		return

@@ -26,7 +26,6 @@ onready var navigation_agent = $NavigationAgent2D
 
 
 func _ready():
-	print(player.position)
 	navigation_agent.set_target_location(target_location)
 	
 	
@@ -37,8 +36,6 @@ func _physics_process(_delta) -> void:
 		return
 	if player != null:
 		target_location = player.position
-	if target_location == null:
-		target_location == Vector2.ZERO
 	navigation_agent.set_target_location(target_location)
 	mov_direction = position.direction_to(target_location)
 	velocity = mov_direction * max_speed
@@ -62,9 +59,9 @@ func _arrived_at_location() -> bool:
 	return navigation_agent.is_navigation_finished()
 
 
-func set_target_location(target: Vector2) -> void:
+func set_target_location(target1: Vector2) -> void:
 	target_reached = false
-	navigation_agent.set_target_location(target)
+	navigation_agent.set_target_location(target1)
 	
 
 func _on_NavigationAgent2D_path_changed():

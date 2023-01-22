@@ -17,6 +17,7 @@ var health = load("res://Important_Scenes/Items/Health_Crystal.tscn")
 #export(bool) var redraw  setget redraw
 var torchlight = load("res://Important_Scenes/Reusable/torchlight.tscn")
 
+var level_exit = load("res://Important_Scenes/Levels/Descender.tscn")
 enum Tiles { GROUND, TREE, WATER, ROOF }
 
 
@@ -232,9 +233,15 @@ func instance_player():
 	var tile = Util.choose(free_tiles) #picking random tile.
 	free_tiles.erase(tile)
 	var Player = playerCharacter.instance()
-	print(Player)
 	Player.position = tile * 64
 	add_child(Player)
+	tile = Util.choose(free_tiles)
+	free_tiles.erase(tile)
+	var levelchange = level_exit.instance()
+	levelchange.position = tile *64
+	add_child(levelchange)
+	
+	
 	
 	
 	

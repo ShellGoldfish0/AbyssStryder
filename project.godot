@@ -51,6 +51,7 @@ config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 [autoload]
 
 Util="*res://Important_Scenes/Reusable/Util.gd"
+SceneTransistor="*res://Important_Scenes/Reusable/SceneTransistor.tscn"
 
 [display]
 
