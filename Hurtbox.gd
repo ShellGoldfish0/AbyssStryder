@@ -18,8 +18,7 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 	if Hitbox == null:
 		return
 	if owner.has_method("take_damage"):
-		
-		print(kb_f)
 		var damage = hitbox.damage
 		owner.take_damage(damage)
+		print(owner)
 		
