@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Assets/Image_Assets/Player_Assets/RotoHampter.png" type="Texture" id=1]
 [ext_resource path="res://Important_Scenes/Reusable/Enemy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Important_Scenes/Reusable/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Important_Scenes/Reusable/Hitbox.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Image_Assets/World/light.png" type="Texture" id=8]
+[ext_resource path="res://Important_Scenes/Reusable/Enemy_Stats.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
@@ -382,11 +383,11 @@ anims/test = SubResource( 3 )
 navigation_layers = 2
 
 [node name="EnemyStats" parent="." index="5"]
-max_health = 4
+script = ExtResource( 9 )
 
 [node name="Hurtbox" type="Area2D" parent="." index="6"]
-collision_layer = 24
-collision_mask = 24
+collision_layer = 0
+collision_mask = 8
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -395,10 +396,9 @@ shape = SubResource( 5 )
 [node name="Timer" type="Timer" parent="Hurtbox" index="1"]
 
 [node name="Hitbox" parent="." index="7" instance=ExtResource( 6 )]
-collision_layer = 24
-collision_mask = 24
+collision_layer = 32
+collision_mask = 16
 script = ExtResource( 7 )
-damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 58 )
@@ -410,3 +410,7 @@ color = Color( 0.8, 0.498039, 0.235294, 1 )
 energy = 0.73
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="no_health" from="EnemyStats" to="." method="_on_EnemyStats_no_health"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]

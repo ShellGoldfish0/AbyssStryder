@@ -4,3 +4,4 @@
 
 [node name="Enemy_Stats" type="Node"]
 script = ExtResource( 1 )
+max_health = 10

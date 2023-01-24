@@ -1,27 +1,23 @@
 extends Enemy
 
-
-onready var animation_player = $AnimationPlayer
-
+onready var animation = $AnimationPlayer
+onready var enemy_stats = $EnemyStats
 
 func _ready():
 	target = player.position
 	animation_player.play("test")
-	
 func _physics_process(_delta):
 	
-	on_death()
+	pass
 	
 	
 	
 	
 func on_death():
-	if stats.health <= 0:
-		max_speed = 0
-		animation_player.play("death")
-		$Light2D.enabled = true
-	else:
-		return
+	max_speed = 0
+	animation_player.play("death")
+	$Light2D.enabled = true
+
 	
 
 
@@ -37,3 +33,7 @@ func _on_AnimationPlayer_animation_finished(anim):
 
 
 	
+
+
+func _on_EnemyStats_no_health():
+	on_death()

@@ -11,7 +11,7 @@ signal target_reached
 signal path_changed
 
 onready var stats = $EnemyStats
-
+onready var animation_player = $AnimationPlayer
 
 
 
@@ -79,7 +79,12 @@ func _on_NavigationAgent2D_target_reached():
 func take_damage(dam: int) ->int:
 	stats.health -= dam
 	return stats.health
-	
+
+func on_death():
+	max_speed = 0
+	animation_player.play("death")
+	$Light2D.enabled = true
+
 
 
 

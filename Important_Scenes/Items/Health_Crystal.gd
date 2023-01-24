@@ -19,6 +19,8 @@ func _ready():
 func _on_Health_Crystal_body_entered(player: KinematicBody2D) -> void:
 	if player == null:
 		return
-	player.hp += 1000000000
+	Stats.set_max_health(Stats.max_health + 4)
+	Stats.set_health(Stats.max_health)
+	print(Stats.max_health)
 	queue_free()
 	

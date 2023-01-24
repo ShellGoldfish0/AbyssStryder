@@ -2,7 +2,7 @@ extends Character
 
 onready var Stab: Area2D = get_node("Hitbox")
 onready var hurtbox = $Hurtbox
-var stats = PlayerStats
+var stats = Stats
 
 
 func _physics_process(delta: float) ->void:

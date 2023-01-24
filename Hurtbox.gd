@@ -35,10 +35,11 @@ func _on_Hurtbox_invincibility_ended():
 	pass # Replace with function body.
 
 
-func _on_Hurtbox_area_entered(area: Hitbox) -> void:
-	owner.take_damage(area.damage)
+func _on_Hurtbox_area_entered(hitbox: Area2D) -> void:
+	owner.take_damage(hitbox.damage)
 	start_invincibility(0.6)
-	print("sadge")
+	print(Stats.health)
+	
 	
 	
 	#Hurbox.create_hit_effect()

@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "Hurtbox",
 "language": "GDScript",
 "path": "res://Hurtbox.gd"
+}, {
+"base": "Node",
+"class": "enemy_stats",
+"language": "GDScript",
+"path": "res://Enemy_Stats.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "EnemyStateMachine": "",
 "FiniteStateMachine": "",
 "Hitbox": "",
-"Hurtbox": ""
+"Hurtbox": "",
+"enemy_stats": ""
 }
 
 [application]
@@ -58,6 +64,7 @@ config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 
 Util="*res://Important_Scenes/Reusable/Util.gd"
 SceneTransistor="*res://Important_Scenes/Reusable/SceneTransistor.tscn"
+Stats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
 PlayerStats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
 
 [display]
