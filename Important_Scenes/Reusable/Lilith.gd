@@ -1,6 +1,8 @@
 extends Character
 
 onready var Stab: Area2D = get_node("Hitbox")
+onready var hurtbox = $Hurtbox
+var stats = Stats
 
 func _physics_process(delta: float) ->void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position.normalized())
@@ -31,3 +33,8 @@ func get_input() -> void:
 		pass
 
 
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= area.damage
+	hurtbox.start_invincibility(0.6)
