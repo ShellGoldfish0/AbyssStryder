@@ -649,8 +649,7 @@ z_index = 2
 z_as_relative = false
 tile_set = SubResource( 1 )
 cell_custom_transform = Transform2D( 64, 64, 0, 64, 0, 0 )
-collision_layer = 7
-collision_mask = 2
+collision_mask = 0
 navigation_layers = 2
 occluder_light_mask = 3
 format = 1
@@ -660,6 +659,7 @@ map_w = 100
 map_h = 100
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 show_behind_parent = true
 light_mask = 2
 z_index = 4

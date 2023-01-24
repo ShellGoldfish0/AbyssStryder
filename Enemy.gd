@@ -3,9 +3,10 @@ extends Character
 class_name Enemy
 
 var target = null
-var target_location = Vector2.ZERO
+var target_location = null
 var last_move_velocity = Vector2.ZERO
 var target_reached = false
+var spawn_position = null
 
 signal target_reached
 signal path_changed
@@ -28,16 +29,14 @@ onready var navigation_agent = $NavigationAgent2D
 
 
 func _ready():
-	navigation_agent.set_target_location(target_location)
+	spawn_position = position
+	target_location = position
+	navigation_agent.set_target_location(spawn_position)
 	
 	
 	
 	
-func _physics_process(_delta) -> void:	
-	if not visible:
-		return
-	if player != null:
-		target_location = player.position
+func _physics_process(_delta) -> void:
 	navigation_agent.set_target_location(target_location)
 	mov_direction = position.direction_to(target_location)
 	velocity = mov_direction * max_speed
@@ -72,7 +71,7 @@ func _on_NavigationAgent2D_path_changed():
 
 
 func _on_NavigationAgent2D_target_reached():
-	pass # Replace with function body.
+	pass
 	
 
 	
