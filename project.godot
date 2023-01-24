@@ -58,7 +58,7 @@ config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 
 Util="*res://Important_Scenes/Reusable/Util.gd"
 SceneTransistor="*res://Important_Scenes/Reusable/SceneTransistor.tscn"
-Stats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
+PlayerStats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
 
 [display]
 
