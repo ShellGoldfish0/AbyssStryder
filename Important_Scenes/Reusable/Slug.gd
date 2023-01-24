@@ -1,5 +1,6 @@
 extends Enemy
 
+
 onready var animation_player = $AnimationPlayer
 
 
@@ -15,12 +16,10 @@ func _physics_process(_delta):
 	
 	
 func on_death():
-	if health <= 0:
+	if stats.health <= 0:
 		max_speed = 0
 		animation_player.play("death")
 		$Light2D.enabled = true
-		
-		
 	else:
 		return
 	
@@ -31,3 +30,10 @@ func _on_AnimationPlayer_animation_finished(anim):
 		queue_free()
 	else:
 		return
+		
+
+
+
+
+
+	

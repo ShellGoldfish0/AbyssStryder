@@ -10,8 +10,10 @@ var target_reached = false
 signal target_reached
 signal path_changed
 
+onready var stats = $EnemyStats
 
-export(int) var health = 10
+
+
 
 
 
@@ -72,11 +74,12 @@ func _on_NavigationAgent2D_path_changed():
 func _on_NavigationAgent2D_target_reached():
 	pass # Replace with function body.
 	
-func set_health(hp: int) -> void:
-	health = hp
+
 	
-func take_damage(dam: int):
-	health -= dam
+func take_damage(dam: int) ->int:
+	stats.health -= dam
+	return stats.health
+	
 
 
 

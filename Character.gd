@@ -5,9 +5,8 @@ class_name Character
 
 const FRICTION: float = .15
 
-export(int) var hp: int = 2
-export(int) var acceleration: int = 50
-export(int) var max_speed: int = 200
+export(int) var acceleration: int 
+export(int) var max_speed: int 
 
 #onready var state_machine: Node = get_node("StateMachine")
 onready var animated_sprite = $AnimatedSprite
@@ -26,13 +25,7 @@ func move() -> void:
 	velocity = velocity.limit_length(max_speed)
 	
 
-func take_damage(dam: int) -> void:
-	hp -= dam
 
 
-func death_check() -> void:
-	if hp <= 0:
-		visible = false
-		print("ded")
-	
+
 	

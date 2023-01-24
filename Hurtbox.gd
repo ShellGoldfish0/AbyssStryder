@@ -1,4 +1,5 @@
 extends Area2D
+class_name Hurtbox
 
 var invincible = false setget set_invincible
 
@@ -34,7 +35,10 @@ func _on_Hurtbox_invincibility_ended():
 	pass # Replace with function body.
 
 
-func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.6)
-	hurtbox.create_hit_effect()
+func _on_Hurtbox_area_entered(area: Hitbox) -> void:
+	owner.take_damage(area.damage)
+	start_invincibility(0.6)
+	print("sadge")
+	
+	
+	#Hurbox.create_hit_effect()

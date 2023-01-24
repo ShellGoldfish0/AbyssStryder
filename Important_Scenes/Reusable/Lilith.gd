@@ -4,16 +4,16 @@ onready var Stab: Area2D = get_node("Hitbox")
 onready var hurtbox = $Hurtbox
 var stats = Stats
 
+
 func _physics_process(delta: float) ->void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position.normalized())
 	
-	Stab.knockback_direction = mouse_direction
+	#Stab.knockback_direction = mouse_direction
 	
 	if mouse_direction.x > position.x and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < position.x and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
-	death_check()
 	
 	
 	
@@ -32,9 +32,14 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_attack"):
 		pass
 
+func take_damage(dam:int) ->void:
+	stats.health -= dam
+	print(stats.health)
 
 
 
-func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	hurtbox.start_invincibility(0.6)
+
+
+
+
+
