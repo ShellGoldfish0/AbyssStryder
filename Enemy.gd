@@ -37,6 +37,8 @@ func _ready():
 	
 	
 func _physics_process(_delta) -> void:
+	if position == spawn_position:
+		velocity = Vector2.ZERO
 	navigation_agent.set_target_location(target_location)
 	mov_direction = position.direction_to(target_location)
 	velocity = mov_direction * max_speed
