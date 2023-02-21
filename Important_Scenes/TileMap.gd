@@ -250,7 +250,7 @@ func instance_player():
 func instance_enemy():
 		for cave in caves:
 			if cave == caves[0]:
-				return
+				pass
 			else:
 				var free_tiles = cave.duplicate() # dupes floor tiles
 				for _num in range(2):
