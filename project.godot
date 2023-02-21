@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Abyss Strider"
-run/main_scene="res://Important_Scenes/Levels/LEVEL_1.tscn"
+run/main_scene="res://Important_Scenes/Levels/The_Hub.tscn"
 config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 
 [autoload]

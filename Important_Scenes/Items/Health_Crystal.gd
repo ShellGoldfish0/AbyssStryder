@@ -22,5 +22,9 @@ func _on_Health_Crystal_body_entered(player: KinematicBody2D) -> void:
 	Stats.set_max_health(Stats.max_health + 4)
 	Stats.set_health(Stats.max_health)
 	print(Stats.max_health)
+	var temp_update = player.get_node("HealthBar")
+	temp_update._on_max_health_updated(Stats.max_health)
+	temp_update._on_health_updated(Stats.health)
+	
 	queue_free()
 	

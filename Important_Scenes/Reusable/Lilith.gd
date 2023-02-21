@@ -14,6 +14,8 @@ func _physics_process(delta: float) ->void:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < position.x and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
+		
+	
 	
 	
 	
@@ -34,6 +36,7 @@ func get_input() -> void:
 
 func take_damage(dam:int) ->void:
 	stats.health -= dam
+	$HealthBar._on_health_updated(stats.health)
 	print(stats.health)
 
 

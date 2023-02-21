@@ -44,11 +44,11 @@ func generate():
 	dig_caves()
 	get_caves()
 	connect_caves()
+	#generate_border()
 	instance_player()
 	instance_enemy()
 	instance_health_crystals()
 	instance_torchlight()
-	generate_border()
 	update_bitmask()
 
 
@@ -228,13 +228,15 @@ func check_nearby(x, y):
 	
 	
 func instance_player():
-	var Spawn = caves[rand_range(0, caves.size())]
+	var Spawn = caves[0]
 	var free_tiles = Spawn.duplicate() # dupes floor tiles
 	var tile = Util.choose(free_tiles) #picking random tile.
 	free_tiles.erase(tile)
 	var Player = playerCharacter.instance()
 	Player.position = tile * 64
 	add_child(Player)
+	Spawn = caves[caves.size() -1]
+	free_tiles = Spawn.duplicate()
 	tile = Util.choose(free_tiles)
 	free_tiles.erase(tile)
 	var levelchange = level_exit.instance()
@@ -247,13 +249,16 @@ func instance_player():
 	
 func instance_enemy():
 		for cave in caves:
-			var free_tiles = cave.duplicate() # dupes floor tiles
-			for _num in range(2):
-				var tile = Util.choose(free_tiles) #picking random tile.
-				free_tiles.erase(tile)
-				var Slug = exploSlug.instance()
-				Slug.position = tile * 64
-				add_child(Slug)
+			if cave == caves[0]:
+				return
+			else:
+				var free_tiles = cave.duplicate() # dupes floor tiles
+				for _num in range(2):
+					var tile = Util.choose(free_tiles) #picking random tile.
+					free_tiles.erase(tile)
+					var Slug = exploSlug.instance()
+					Slug.position = tile * 64
+					add_child(Slug)
 			
 			
 					

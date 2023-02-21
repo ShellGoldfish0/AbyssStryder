@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Important_Scenes/Reusable/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Image_Assets/Player_Assets/knight_run_spritesheet.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Important_Scenes/Reusable/Lilith_Hitbox.gd" type="Script" id=9]
 [ext_resource path="res://Important_Scenes/Pause.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Important_Scenes/Reusable/HealthBar.tscn" type="PackedScene" id=11]
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
@@ -218,6 +219,12 @@ collision_mask = 32
 shape = SubResource( 35 )
 
 [node name="Timer" type="Timer" parent="Hurtbox" index="1"]
+
+[node name="HealthBar" parent="." index="8" instance=ExtResource( 11 )]
+margin_left = -702.0
+margin_top = -394.0
+margin_right = -496.0
+margin_bottom = -373.0
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
