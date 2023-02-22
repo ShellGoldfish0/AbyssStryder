@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Hitbox.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Image_Assets/World/Spikes-PNG-Transparent-Picture.png" type="Texture" id=2]
+[ext_resource path="res://Projectile.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 69.6814
+height = 521.229
+
+[node name="Projectile" type="Sprite"]
+position = Vector2( 0, 1 )
+scale = Vector2( 0.0333333, 0.0388889 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+SPEED = 300
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, 1 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource( 1 )
+damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 4.42822, -6.19434 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://The_Hub.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Image_Assets/Tilesheets/MossyStoneTileMap64x.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Hitbox.gd" type="Script" id=8]
 [ext_resource path="res://Important_Scenes/Items/Health_Crystal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Image_Assets/Items/DragonGemstoneRemake.webp" type="Texture" id=10]
+[ext_resource path="res://Important_Scenes/Reusable/Sentry.tscn" type="PackedScene" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( 64, 64, 8.75, 64, 8.75, 6.66669, 64, 6.66669 )
@@ -690,36 +691,30 @@ position = Vector2( -1046, 591 )
 
 [node name="Health_Crystal9" parent="." instance=ExtResource( 9 )]
 position = Vector2( -808, 320 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal8" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1005, 268 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal7" parent="." instance=ExtResource( 9 )]
 position = Vector2( -770, 648 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal6" parent="." instance=ExtResource( 9 )]
 position = Vector2( -935, 426 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal10" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1143, 888 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal5" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1193, 716 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal4" parent="." instance=ExtResource( 9 )]
 position = Vector2( -950, 748 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1135, 423 )
-scale = Vector2( 1, 1 )
 
 [node name="Health_Crystal3" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1267, 617 )
-scale = Vector2( 1, 1 )
+
+[node name="Sentry" parent="." instance=ExtResource( 11 )]
+z_index = 4

@@ -37,7 +37,7 @@ func get_input() -> void:
 func take_damage(dam:int) ->void:
 	stats.health -= dam
 	$HealthBar._on_health_updated(stats.health)
-	print(stats.health)
+	
 
 
 

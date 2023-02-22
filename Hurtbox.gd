@@ -38,7 +38,7 @@ func _on_Hurtbox_invincibility_ended():
 func _on_Hurtbox_area_entered(hitbox: Area2D) -> void:
 	owner.take_damage(hitbox.damage)
 	start_invincibility(0.6)
-	print(Stats.health)
+	
 	
 	
 	
