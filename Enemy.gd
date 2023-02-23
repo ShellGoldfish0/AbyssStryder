@@ -29,7 +29,7 @@ onready var navigation_agent = $NavigationAgent2D
 
 
 func _ready():
-	spawn_position = position
+	set_spawn_location()
 	target_location = position
 	navigation_agent.set_target_location(spawn_position)
 	
@@ -37,12 +37,7 @@ func _ready():
 	
 	
 func _physics_process(_delta) -> void:
-	if position == spawn_position:
-		velocity = Vector2.ZERO
-	navigation_agent.set_target_location(target_location)
-	mov_direction = position.direction_to(target_location)
-	velocity = mov_direction * max_speed
-	navigation_agent.set_velocity(velocity)
+	
 	
 	if not _arrived_at_location():
 		velocity = move_and_slide(velocity)
@@ -85,6 +80,12 @@ func on_death():
 	max_speed = 0
 	animation_player.play("death")
 	$Light2D.enabled = true
+	
+func set_spawn_location():
+	spawn_position = position
+
+
+
 
 
 

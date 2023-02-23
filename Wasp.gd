@@ -1,34 +1,70 @@
-extends KinematicBody2D 
+extends Enemy
 
-onready var player = get_node("/root/HAHA/Player")
-onready var agent: NavigationAgent2D = $NavigationAgent2D
-var velocity = Vector2.ZERO
-var spawn = Vector2(-701, -14)
-var target = null
-onready var timer: Timer = $Timer
+onready var enemy_stats = $EnemyStats
+onready var nav_agent = $NavigationAgent2D
+onready var anim_player = $AnimationPlayer
+onready var anim_sprite = $AnimatedSprite
+
+
+var new_location = null
+var current_location = null
+var state = "wander"
+
+
+
+
 
 func _ready():
-	timer.connect("timeout", self, "_update_pathfinding")
+	max_speed = 100
+	acceleration = 50
+	
+	
+	
 
-func _physics_process(_delta):
-	if agent.is_navigation_finished():
-		return
-	if target:
-		velocity = global_position.direction_to(agent.get_next_location()) * 2
-		velocity = move_and_collide(velocity)
-		_update_pathfinding()
-	else: 
-		agent.set_target_location(spawn)
-		velocity = global_position.direction_to(agent.get_next_location()) * 2
-		velocity = move_and_collide(velocity)
 
-func _update_pathfinding():
-	agent.set_target_location(player.global_position)
+func _physics_process(delta) -> void:
+	if not _arrived_at_location():
+		velocity = move_and_slide(velocity)
+	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
+		target_location = body.position
+		navigation_agent.set_target_location(target_location)
+		if $PlayerDetect.overlaps_body(player) == false:
+			state = "wander"
+		else:
+			state = "attack"
+			
+	if state == "wander":
+		$WanderTimer.start()
+		
+	elif state == "attack":
+		navigation_agent.set_target_location(target_location)
+		mov_direction = position.direction_to(target_location)
+		velocity = mov_direction * max_speed
+		navigation_agent.set_velocity(velocity)
+		if $PlayerDetect.overlaps_body(player) == false:
+			state = "wander"
+		
+	else:
+		print("fuck")
+		
 
-func _on_WaspArea_body_entered(body):
-	if body == player:
-		agent.set_target_location(player.global_position)
-		target = body
 
-func _on_WaspArea_body_exited(_body):
-	target = null
+func wander():
+	if velocity != Vector2.ZERO:
+		#print(position)
+		target_location = Vector2(rand_range(position.x -300 , position.x +300  ), rand_range(position.y- 300 , position.y +300  ) )
+		var target_location2 = Vector2(rand_range(position.x -300 , position.x +300  ), rand_range(position.y- 300 , position.y +300  ) )
+		var target_location3 = Vector2(rand_range(position.x -300 , position.x +300  ), rand_range(position.y- 300 , position.y +300  ) )
+		navigation_agent.set_target_location(target_location)
+		mov_direction = position.direction_to(target_location)
+		velocity = mov_direction * 50
+		navigation_agent.set_velocity(velocity)
+		#$WanderTimer.start()
+		move_and_slide(velocity)
+	
+
+
+
+
+func _on_WanderTimer_timeout():
+	wander()

@@ -14,7 +14,7 @@ radius = 368.001
 
 [node name="Sentry" type="KinematicBody2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -48,6 +48,8 @@ wait_time = 0.304
 one_shot = true
 
 [node name="Player_Detection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detection"]
 shape = SubResource( 2 )

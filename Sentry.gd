@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var player = get_parent().get_node("Lilith")
 var BULLET = load("res://Important_Scenes/Reusable/Projectile.tscn")
 var target = null
 
@@ -22,13 +23,17 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	if target != null:
+	if target != null and target == player:
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		raycast.global_rotation = angle_to_target
 		
 		if $Player_Detection.get_overlapping_bodies() != null:
-			if reset_timer.is_stopped():
-				shoot()
+			for entity in $Player_Detection.get_overlapping_bodies():
+				if entity != player:
+					return
+				else:
+					if reset_timer.is_stopped() and entity == player:
+						shoot()
 			
 				
 				
@@ -51,7 +56,7 @@ func _on_Reset_Timer_timeout():
 	raycast.enabled = true
 
 
-func _on_Player_Detection_body_entered(body):
+func _on_Player_Detection_body_entered(body: KinematicBody2D):
 	target = body
 
 

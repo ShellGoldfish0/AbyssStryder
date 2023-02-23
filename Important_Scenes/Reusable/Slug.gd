@@ -6,7 +6,12 @@ onready var enemy_stats = $EnemyStats
 func _ready():
 	animation_player.play("test")
 func _physics_process(_delta):
-	
+	if position == spawn_position:
+		velocity = Vector2.ZERO
+	navigation_agent.set_target_location(target_location)
+	mov_direction = position.direction_to(target_location)
+	velocity = mov_direction * max_speed
+	navigation_agent.set_velocity(velocity)
 	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
 		target_location = body.position
 	if $PlayerDetect.overlaps_body(player) == false:
