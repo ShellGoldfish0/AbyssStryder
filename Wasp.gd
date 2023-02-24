@@ -40,8 +40,8 @@ func _physics_process(delta: float) -> void:
 			
 	if state == "wander":
 		time += 5
-		var roto = wander.get_noise_1d(time) * delta * 360			#GRABS THE INTERNAL ROTATION AND THEN APPLYS THAT TO MOVE THEM IN THE DIRECTION
-		move_and_slide(Vector2(cos(roto), sin(roto)) * 100)
+		var rotation = wander.get_noise_1d(time) * delta * 360			#GRABS THE INTERNAL ROTATION AND THEN APPLYS THAT TO MOVE THEM IN THE DIRECTION
+		move_and_slide(Vector2(cos(rotation), sin(rotation)) * 100)
 		
 	elif state == "attack":
 		navigation_agent.set_target_location(target_location)
@@ -50,8 +50,8 @@ func _physics_process(delta: float) -> void:
 		navigation_agent.set_velocity(velocity)
 		if $Attack_Timer.is_stopped():
 			var bullet = BULLET.instance()
-			add_child(bullet)
-			print(bullet)
+			get_parent().add_child(bullet)
+			print("feck")
 			bullet.global_position = global_position
 			bullet.global_rotation = $RayCast2D.global_rotation
 			$Attack_Timer.start()

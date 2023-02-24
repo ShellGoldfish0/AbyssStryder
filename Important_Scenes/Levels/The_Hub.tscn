@@ -650,7 +650,7 @@ radius = 239.052
 
 [node name="The_Hub" type="Node2D"]
 
-[node name="TileMap2" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -1, -6 )
 z_index = 2
 z_as_relative = false

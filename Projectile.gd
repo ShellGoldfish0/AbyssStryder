@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 const RIGHT = Vector2.RIGHT
 
@@ -27,3 +27,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Hitbox_area_entered(area):
 	area.owner.take_damage($Hitbox.damage)
 	queue_free()
+
+
+func _on_Projectile_body_entered(body):
+	if body is TileMap:
+		queue_free()

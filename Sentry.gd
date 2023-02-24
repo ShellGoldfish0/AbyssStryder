@@ -3,18 +3,23 @@ extends KinematicBody2D
 onready var player = get_parent().get_node("Lilith")
 var BULLET = load("res://Important_Scenes/Reusable/Projectile.tscn")
 var target = null
-
+var burst = 0
 onready var raycast = $RayCast2D
 onready var reset_timer = $RayCast2D/Reset_Timer
 
 
 func shoot():
-	print("wok")
-	var bullet = BULLET.instance()
-	add_child(bullet)
-	bullet.global_position = global_position
-	bullet.global_rotation = raycast.global_rotation
-	reset_timer.start()
+	if $BurstTimer.is_stopped():
+		burst += 1
+		var bullet = BULLET.instance()
+		add_child(bullet)
+		bullet.global_position = global_position
+		bullet.global_rotation = raycast.global_rotation
+		reset_timer.start()
+		if burst >= 3:
+			$BurstTimer.start()
+			burst = 0
+	
 	
 	
 	

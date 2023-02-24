@@ -5,21 +5,20 @@
 [ext_resource path="res://Projectile.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 69.6814
-height = 521.229
+radius = 63.9992
+height = 672.002
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 200, 10 )
+extents = Vector2( 347.75, 19 )
 
-[node name="Projectile" type="Sprite"]
-position = Vector2( 0, 1 )
-scale = Vector2( 0.0333333, 0.0388889 )
-texture = ExtResource( 2 )
+[node name="Projectile" type="Area2D"]
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 3 )
 SPEED = 300
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, -7.62939e-06 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 32
@@ -28,14 +27,19 @@ script = ExtResource( 1 )
 damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 4.42822, -6.19434 )
 rotation = 1.5708
+scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 190, 0 )
+scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.285, 0.172 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
