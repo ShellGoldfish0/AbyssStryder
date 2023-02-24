@@ -73,7 +73,9 @@ func _on_NavigationAgent2D_target_reached():
 
 	
 func take_damage(dam: int) ->int:
-	stats.health -= dam
+	$EnemyStats.health -= dam
+	if $EnemyStats.health <= 0:
+		queue_free()
 	return stats.health
 
 func on_death():

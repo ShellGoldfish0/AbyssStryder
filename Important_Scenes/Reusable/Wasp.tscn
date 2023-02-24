@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Image_Assets/World/wasp_PNG14.png" type="Texture" id=1]
 [ext_resource path="res://Wasp.gd" type="Script" id=2]
 [ext_resource path="res://Important_Scenes/Reusable/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hurtbox.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -23,6 +24,9 @@ radius = 24.5153
 [sub_resource type="CircleShape2D" id=4]
 radius = 312.17
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 25.0
+
 [node name="Enemy" instance=ExtResource( 3 )]
 collision_layer = 4
 script = ExtResource( 2 )
@@ -37,6 +41,9 @@ frames = SubResource( 2 )
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 3 )
 
+[node name="EnemyStats" parent="." index="5"]
+max_health = 8
+
 [node name="PlayerDetect" type="Area2D" parent="." index="6"]
 collision_layer = 0
 collision_mask = 2
@@ -44,10 +51,24 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect" index="0"]
 shape = SubResource( 4 )
 
-[node name="WanderTimer" type="Timer" parent="." index="7"]
+[node name="Attack_Timer" type="Timer" parent="." index="7"]
 process_mode = 0
-wait_time = 0.5
+wait_time = 1.032
 one_shot = true
 
+[node name="RayCast2D" type="RayCast2D" parent="." index="8"]
+
+[node name="Hurtbox" type="Area2D" parent="." index="9"]
+collision_layer = 64
+collision_mask = 8
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="Hurtbox" index="1"]
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_navigation_finished"]
-[connection signal="timeout" from="WanderTimer" to="." method="_on_WanderTimer_timeout"]
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_PlayerDetect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_PlayerDetect_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
