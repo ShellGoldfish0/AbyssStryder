@@ -20,9 +20,11 @@ var torchlight = load("res://Important_Scenes/Reusable/torchlight.tscn")
 var level_exit = load("res://Important_Scenes/Levels/Descender.tscn")
 enum Tiles { GROUND, TREE, WATER, ROOF }
 
+var needle = load("res://Important_Scenes/Reusable/Sentry.tscn")
 
+var wasp = load("res://Important_Scenes/Reusable/Wasp.tscn")
 var caves = []
-
+var enemies = [exploSlug, needle, wasp]
 
 func _ready():
 	generate()
@@ -253,12 +255,13 @@ func instance_enemy():
 				pass
 			else:
 				var free_tiles = cave.duplicate() # dupes floor tiles
-				for _num in range(2):
+				for _num in range(6):
 					var tile = Util.choose(free_tiles) #picking random tile.
 					free_tiles.erase(tile)
-					var Slug = exploSlug.instance()
-					Slug.position = tile * 64
-					add_child(Slug)
+					randomize()
+					var attacker = enemies[rand_range(0, enemies.size())].instance()
+					attacker.position = tile * 64
+					add_child(attacker)
 			
 			
 					

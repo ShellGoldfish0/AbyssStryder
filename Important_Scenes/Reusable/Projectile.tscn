@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Hitbox.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Image_Assets/World/Spikes-PNG-Transparent-Picture.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 69.6814
 height = 521.229
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 200, 10 )
 
 [node name="Projectile" type="Sprite"]
 position = Vector2( 0, 1 )
@@ -28,6 +31,10 @@ damage = 2
 position = Vector2( 4.42822, -6.19434 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 190, 0 )
+shape = SubResource( 2 )
 
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
