@@ -43,10 +43,13 @@ func _physics_process(delta):
 				
 				
 
-func take_damage(dam):
-	$enemy_stats.set_health($enemy_stats.health - dam)
+func take_damage(dam: int) ->int:
+	$enemy_stats.health -= dam
 	if $enemy_stats.health <= 0:
+		var temp = get_parent()
+		temp._on_enemy_killed()
 		queue_free()
+	return $enemy_stats.health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
