@@ -1,13 +1,14 @@
-extends Hitbox
+extends Area2D
+class_name Hitbox
+
+export(int) var damage: int = 4
 
 
+onready var collision_shape: CollisionShape2D = get_child(0)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _init() -> void:
+	#collision_layer = 8
+	#collision_mask = 0
 	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

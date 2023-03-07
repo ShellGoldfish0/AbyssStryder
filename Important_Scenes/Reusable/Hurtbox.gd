@@ -1,16 +1,45 @@
 extends Area2D
+class_name Hurtbox
+
+var invincible = false setget set_invincible
+
+onready var timer = $Timer
+onready var collisionShape = $CollisionShape2D
+
+signal invincibility_started
+signal invincibility_ended
+
+func set_invincible(value):
+	invincible = value
+	if invincible == true:
+		emit_signal("invincibility_started")
+	else:
+		emit_signal("invincibility_ended")
+
+func start_invincibility(duration):
+	self.invincible = true
+	timer.start(duration)
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _on_Timer_timeout():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+#Hurtbox invis functions -- will be used to communicate with AnimationPlayer
+func _on_Hurtbox_invincibility_started():
+	pass # Replace with function body.
+
+
+func _on_Hurtbox_invincibility_ended():
+	pass # Replace with function body.
+
+
+func _on_Hurtbox_area_entered(hitbox: Area2D) -> void:
+	owner.take_damage(hitbox.damage)
+	start_invincibility(0.6)
+	
+	
+	
+	
+	#Hurbox.create_hit_effect()

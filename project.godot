@@ -12,37 +12,37 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
-"path": "res://Character.gd"
+"path": "res://Important_Scenes/Characters/Character.gd"
 }, {
 "base": "Character",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemy.gd"
+"path": "res://Important_Scenes/Characters/Enemies/Enemy.gd"
 }, {
 "base": "FiniteStateMachine",
 "class": "EnemyStateMachine",
 "language": "GDScript",
-"path": "res://ENEMYSTATEMACHINE.gd"
+"path": "res://Important_Scenes/Characters/Enemies/ENEMYSTATEMACHINE.gd"
 }, {
 "base": "Node",
 "class": "FiniteStateMachine",
 "language": "GDScript",
-"path": "res://STATEMACHINE.gd"
+"path": "res://Important_Scenes/Characters/STATEMACHINE.gd"
 }, {
 "base": "Area2D",
 "class": "Hitbox",
 "language": "GDScript",
-"path": "res://Hitbox.gd"
+"path": "res://Important_Scenes/Reusable/Hitbox.gd"
 }, {
 "base": "Area2D",
 "class": "Hurtbox",
 "language": "GDScript",
-"path": "res://Hurtbox.gd"
+"path": "res://Important_Scenes/Reusable/Hurtbox.gd"
 }, {
 "base": "Node",
 "class": "enemy_stats",
 "language": "GDScript",
-"path": "res://Enemy_Stats.gd"
+"path": "res://Important_Scenes/Characters/Enemies/Enemy_Stats_Class.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
@@ -57,15 +57,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Abyss Strider"
-run/main_scene="res://Important_Scenes/Levels/The_Hub.tscn"
+run/main_scene="res://Important_Scenes/Levels/RandomLevel/The_Hub.tscn"
 config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 
 [autoload]
 
-Util="*res://Important_Scenes/Reusable/Util.gd"
-SceneTransistor="*res://Important_Scenes/Reusable/SceneTransistor.tscn"
-Stats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
-PlayerStats="*res://Important_Scenes/Reusable/Player_Stats.tscn"
+SceneTransistor="*res://Important_Scenes/Levels/SceneTransistor.gd"
+Util="*res://Important_Scenes/Characters/Util.gd"
+PlayerStats="*res://Important_Scenes/Characters/Player/PlayerStats.gd"
+Stats="*res://Important_Scenes/Characters/Player/Stats.gd"
 
 [display]
 
