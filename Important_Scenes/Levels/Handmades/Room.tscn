@@ -1,11 +1,10 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Important_Scenes/Levels/Handmades/Scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Image_Assets/World/dungeon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Image_Assets/Tilesheets/MossyStoneTileMap64x.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Image_Assets/World/GrassBackground.png" type="Texture" id=4]
 [ext_resource path="res://Assets/MossyStoneWallTilemap64x.png" type="Texture" id=5]
-[ext_resource path="res://Important_Scenes/Characters/Player/Lilith.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=98]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -1202,8 +1201,5 @@ tile_data = PoolIntArray( 8, 3, 4, 9, 3, 196610, 131064, 3, 3, 65543, 3, 4, 6554
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-
-[node name="Lilith" parent="." instance=ExtResource( 6 )]
-position = Vector2( 340, -108 )
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

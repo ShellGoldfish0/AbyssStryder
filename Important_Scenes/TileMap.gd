@@ -9,20 +9,20 @@ export   var neighbors     = 4
 export   var ground_chance = 48
 export  var min_cave_size = 80
 
-var exploSlug = load("res://Important_Scenes/Reusable/Slug.tscn")
+var exploSlug = load("res://Important_Scenes/Characters/Enemies/Slug/Slug.tscn")
 
-var playerCharacter = load("res://Important_Scenes/Reusable/Lilith.tscn")
+var playerCharacter = load("res://Important_Scenes/Characters/Player/Lilith.tscn")
 
 var health = load("res://Important_Scenes/Items/Health_Crystal.tscn")
 #export(bool) var redraw  setget redraw
 var torchlight = load("res://Important_Scenes/Reusable/torchlight.tscn")
 
-var level_exit = load("res://Important_Scenes/Levels/Descender.tscn")
+var level_exit = load("res://Important_Scenes/Levels/RandomLevel/Descender.tscn")
 enum Tiles { GROUND, TREE, WATER, ROOF }
 
-var needle = load("res://Important_Scenes/Reusable/Sentry.tscn")
+var needle = load("res://Important_Scenes/Characters/Enemies/Sentry/Sentry.tscn")
 
-var wasp = load("res://Important_Scenes/Reusable/Wasp.tscn")
+var wasp = load("res://Important_Scenes/Characters/Enemies/Wasp/Wasp.tscn")
 var caves = []
 var enemies = [exploSlug, needle, wasp]
 

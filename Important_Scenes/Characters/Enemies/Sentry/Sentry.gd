@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player = get_parent().get_node("Lilith")
+var player = null
 var BULLET = load("res://Important_Scenes/Reusable/Projectile.tscn")
 var target = null
 var burst = 0
@@ -29,6 +29,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if target != null and target == player:
+		#print("spotted")
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		raycast.global_rotation = angle_to_target
 		
@@ -66,6 +67,8 @@ func _on_Reset_Timer_timeout():
 
 func _on_Player_Detection_body_entered(body: KinematicBody2D):
 	target = body
+	player = body
+	#print(target)
 
 
 func _on_Player_Detection_body_exited(body):

@@ -44,9 +44,11 @@ func _on_EnemyStats_no_health():
 
 
 func _on_PlayerDetect_area_entered(area):
-	set_target_location(player.position)
+	pass
+	
 
 
 func _on_PlayerDetect_body_entered(body):
-	pass
+	player = body
+	set_target_location(player.position)
 	

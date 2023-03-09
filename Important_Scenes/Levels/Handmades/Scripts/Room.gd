@@ -29,13 +29,14 @@ func _open_doors():
 		
 		
 func _close_entrance():
-	#for entry_position in entrance.get_children():
-		#tilemap.set_cellv(tilemap.world_to_map(entry_position.global_position), 1)
-		#tilemap.set_cellv(tilemap.world_to_map(entry_position.global_position) + Vector2.UP, 2)\
-	pass
+	for entry_position in entrance.get_children():
+		$Bottom.set_cellv($Bottom.world_to_map(entry_position.global_position), 4)
+		#tilemap.set_cellv(tilemap.world_to_map(entry_position.global_position), 4)
+	
 func _spawn_enemies():
 	if num_enemies == 0:
 		_open_doors()
+		$Descender.visible = true
 	else:
 		for enemy_position in enemy_positions_container.get_children():
 			randomize()

@@ -22,6 +22,7 @@ func _ready():
 	
 	
 	
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_PlayerDetect_body_entered(body):
 	target = body
+	player = body
 
 
 func _on_PlayerDetect_body_exited(body):

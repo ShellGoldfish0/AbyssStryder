@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Important_Scenes/Levels/Handmades/Rooms.gd" type="Script" id=1]
+[ext_resource path="res://Important_Scenes/Characters/Player/Lilith.tscn" type="PackedScene" id=2]
 
 [node name="Game" type="Node"]
 
 [node name="Rooms" type="Node" parent="."]
 script = ExtResource( 1 )
+
+[node name="Lilith" parent="." instance=ExtResource( 2 )]

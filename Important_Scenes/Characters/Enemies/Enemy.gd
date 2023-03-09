@@ -20,8 +20,7 @@ onready var animation_player = $AnimationPlayer
 
 
 
-
-onready var player = null
+var player = null
 
 onready var navigation_agent = $NavigationAgent2D
 
@@ -33,7 +32,7 @@ func _ready():
 	set_spawn_location()
 	target_location = position
 	navigation_agent.set_target_location(spawn_position)
-	player = get_parent().get_node("Lilith")
+	
 	
 	
 	
