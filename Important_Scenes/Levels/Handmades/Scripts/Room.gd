@@ -21,7 +21,7 @@ func _on_enemy_killed():
 	num_enemies -= 1
 	if num_enemies == 0:
 		_open_doors()
-		print("ick")
+		
 func _open_doors():
 	for door in door_container.get_children():
 		door.open()

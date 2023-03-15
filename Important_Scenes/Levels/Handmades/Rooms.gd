@@ -2,7 +2,7 @@ extends Node
 
 
 const SPAWN_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/Spawn Rooms/SpawnRoom1.tscn")]
-const MID_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room0.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room1.tscn"),preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room3.tscn")]
+const MID_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room0.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room1.tscn"),preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room3.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room2.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room4.tscn")]
 const END_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/End Rooms/End_Room1.tscn")]
 
 
@@ -12,7 +12,7 @@ onready var player = get_parent().get_node("Lilith")
 
 
 
-export(int) var num_rooms: int = 3
+export(int) var num_rooms: int = 5
 var previous_room
 var room_count = 0
 
@@ -30,6 +30,8 @@ func _spawn_rooms():
 	else:
 		if room_count < num_rooms:
 			room = MID_ROOMS[randi() % MID_ROOMS.size()].instance()
+			if room == previous_room:
+				room = MID_ROOMS[randi() % MID_ROOMS.size()].instance()
 		else:
 			room = END_ROOMS[randi() % END_ROOMS.size()].instance()
 	add_child(room)
