@@ -2,6 +2,8 @@ extends Node
 
 export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
+var max_speed = 200
+
 
 signal no_health
 signal health_changed(value)
@@ -20,3 +22,11 @@ func set_health(value):
 
 func _ready():
 	self.health = max_health
+	
+
+func set_max_speed(new_max_speed):
+	max_speed = new_max_speed
+	owner.max_speed = max_speed
+
+func change_speed(new_speed):
+	max_speed = new_speed

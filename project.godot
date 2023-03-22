@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "AOE_Debuff",
+"language": "GDScript",
+"path": "res://Important_Scenes/Characters/Enemies/Debuffs/AOE_DeBuff.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_classes=[ {
 "path": "res://Important_Scenes/Characters/Enemies/Enemy_Stats_Class.gd"
 } ]
 _global_script_class_icons={
+"AOE_Debuff": "",
 "Character": "",
 "Enemy": "",
 "EnemyStateMachine": "",
@@ -58,6 +64,7 @@ _global_script_class_icons={
 
 config/name="Abyss Strider"
 run/main_scene="res://Important_Scenes/Game.tscn"
+boot_splash/bg_color=Color( 0.482353, 0.482353, 0.482353, 1 )
 config/icon="res://Assets/Image_Assets/Player_Assets/icon.png"
 
 [autoload]
@@ -71,6 +78,10 @@ Stats="*res://Important_Scenes/Characters/Player/Stats.gd"
 
 window/size/width=1920
 window/size/height=1080
+
+[global]
+
+background=false
 
 [gui]
 

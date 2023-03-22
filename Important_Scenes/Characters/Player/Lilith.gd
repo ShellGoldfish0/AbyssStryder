@@ -5,6 +5,9 @@ onready var hurtbox = get_node("Hurtbox")
 var stats = Stats
 
 
+func _ready():
+	pass
+
 func _physics_process(delta: float) ->void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position.normalized())
 	
