@@ -4,7 +4,7 @@ class_name AOE_Debuff
 
 var previous_stat_value
 
-var debuff_list = ["max_speed"]
+var debuff_list = ["max_speed", "max_health"]
 var debuff
 var value
 
@@ -27,7 +27,8 @@ func _on_AOE_Debuff_body_entered(body):
 func _on_AOE_Debuff_body_exited(body):
 	if debuff == "max_speed":
 		body.max_speed = previous_stat_value
-	
+	if debuff == "max_health":
+		Stats.set_health(Stats.health - value)
 	
 
 	

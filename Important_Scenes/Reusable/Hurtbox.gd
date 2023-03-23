@@ -3,7 +3,7 @@ class_name Hurtbox
 
 var invincible = false setget set_invincible
 
-onready var timer = $Timer
+onready var timer = get_node("Timer")
 onready var collisionShape = $CollisionShape2D
 
 signal invincibility_started
