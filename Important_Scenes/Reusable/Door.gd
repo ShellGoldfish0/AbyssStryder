@@ -7,6 +7,5 @@ func _ready():
 	pass # Replace with function body.
 
 func open():
-	print("bye")
 	queue_free()
 

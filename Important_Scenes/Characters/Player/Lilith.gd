@@ -6,8 +6,9 @@ var stats = Stats
 
 
 func _ready():
-	pass
-
+	
+	Stats.set_max_health(100)
+	Stats.set_health(100)
 func _physics_process(delta: float) ->void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position.normalized())
 	
@@ -23,7 +24,7 @@ func _physics_process(delta: float) ->void:
 	
 	
 	
-	
+#START GET_INPUT FUNCTION - CHECKS FOR MOVEMENT INPUTS
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_down"):
@@ -36,12 +37,13 @@ func get_input() -> void:
 		mov_direction += Vector2.LEFT
 	if Input.is_action_pressed("ui_attack"):
 		pass
+#END GET_INPUT FUNCTION
 
-
+#START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
 func take_damage(dam:int) ->void:
 	Stats.health -= dam
 	$HealthBar._on_health_updated(Stats.health)
-	
+#END TAKE_DAMAGE FUNCTION
 
 
 

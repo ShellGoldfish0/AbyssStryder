@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 		if $Attack_Timer.is_stopped():
 			var bullet = BULLET.instance()
 			get_parent().add_child(bullet)
-			print("feck")
 			bullet.global_position = global_position
 			bullet.global_rotation = $RayCast2D.global_rotation
 			$Attack_Timer.start()

@@ -1,29 +1,24 @@
 extends Node
 
-
+#VARIABLE DECLARATION
 const SPAWN_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/Spawn Rooms/SpawnRoom1.tscn")]
 const MID_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room0.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room1.tscn"),preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room3.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room2.tscn"), preload("res://Important_Scenes/Levels/Handmades/Floor Rooms/Room4.tscn")]
 const END_ROOMS: Array = [preload("res://Important_Scenes/Levels/Handmades/End Rooms/End_Room1.tscn")]
-
-
-
-
 onready var player = get_parent().get_node("Lilith")
-
-
-
 export(int) var num_rooms: int = 5
 var previous_room
 var room_count = 0
+#END VARIABLE DECLARATION
 
+#READY FUNCTION - RUNS THIS AS SOON AS SCRIPT IS LOADED
 func _ready():
 	_spawn_rooms()
-	
-	
-	
+#END READY FUNCTION
 
+
+#SPAWN_ROOMS FUNCTION - USES A LOOP TO DETERMINE WHICH ROOMS TO SPAWN, RANDOMLY PICKS THEM AND THEN ADDS THEM TO THE LEVEL
 func _spawn_rooms():
-	randomize()
+	randomize() #ENSURES COMPLETE RANDOMNESS
 	var room: Node2D
 	if room_count == 0:
 		room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instance()
@@ -38,11 +33,14 @@ func _spawn_rooms():
 	player.position = room.get_node("Spawn").position
 	previous_room = room
 	room_count +=1
+#END SPAWN_ROOMS FUNCTION
 
-
+#DELETE FUNCTION - DELETES PREVIOUS ROOM
 func delete():
 	previous_room.queue_free()
+#END DELETE FUNCTION
 
+#RANDOM GENERATION SCRIPT - FOR SAFEKEEPING AND QUICK RE-INSTANTIATION
 """"
 onready var player = get_parent().get_node("Lilith")
 
@@ -93,3 +91,4 @@ func _spawn_player(pos):
 	
 	print(player.position)
 """
+#END RANDOM GENERATION SCRIPT

@@ -7,7 +7,8 @@ func _on_health_updated(health):
 
 func _on_max_health_updated(max_health):
 	healthbar.max_value = max_health
-	print("jorts")
+	
 	
 func _ready():
 	_on_max_health_updated(Stats.max_health)
+	

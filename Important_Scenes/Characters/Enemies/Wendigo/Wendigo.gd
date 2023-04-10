@@ -9,22 +9,31 @@ var rng = RandomNumberGenerator.new()
 var states = ["RA", "MA","CA","I", "C"]
 var state
 var container
-var prev_speed = max_speed
+var prev_speed = 150
 
 func _ready():
 	state = "I"
-	navigation_agent.set_target_location(spawn_position)
-	print(target_location)
+	navigation_agent = $NavigationAgent2D
+	spawn_position = position
+	target = spawn_position
+	
 
 func _physics_process(delta):
 	if position == spawn_position:
 		velocity = Vector2.ZERO
-	mov_direction = position.direction_to(target_location)
+	target_location = target
+	mov_direction = position.direction_to(target)
 	velocity = mov_direction * max_speed
 	navigation_agent.set_velocity(velocity)
+	
+	for body in $PlayerDetector.get_overlapping_bodies():   # Check to see that overlap is Player layer
+		target = body.position
+	if $PlayerDetector.overlaps_body(player) == false:
+			target = spawn_position
 	if state == "I":
 		pass
 	elif state == "RA":
+		max_speed = 0
 		ranged_timer.start()
 		if container == null:
 			$Position2D.global_position = player.global_position
@@ -35,10 +44,8 @@ func _physics_process(delta):
 		
 		$Hitbox.monitorable = true
 		$Hitbox.monitoring = true
-		if not _arrived_at_location():
-			velocity = move_and_slide(velocity)
 		
-	
+		
 	
 	
 
@@ -68,4 +75,7 @@ func _on_Timer_timeout():
 func _on_PlayerDetector_body_entered(body):
 	state = "RA"
 	player = body
-	target_location = player
+	target = player.position
+
+
+

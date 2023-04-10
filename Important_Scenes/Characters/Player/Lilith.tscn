@@ -224,10 +224,11 @@ shape = SubResource( 35 )
 [node name="Timer" type="Timer" parent="Hurtbox" index="1"]
 
 [node name="HealthBar" parent="." index="8" instance=ExtResource( 11 )]
-margin_left = -702.0
-margin_top = -394.0
-margin_right = -496.0
-margin_bottom = -373.0
+anchor_right = 0.496
+margin_left = -308.0
+margin_top = -172.0
+margin_right = -102.0
+margin_bottom = -151.0
 
 [node name="Stats" parent="." index="9" instance=ExtResource( 12 )]
 
