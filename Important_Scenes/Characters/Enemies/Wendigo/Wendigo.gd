@@ -76,6 +76,13 @@ func _on_PlayerDetector_body_entered(body):
 	state = "RA"
 	player = body
 	target = player.position
+	
+	
 
 
 
+
+
+
+func _on_Hurtbox_area_entered(area):
+	take_damage(area.damage)

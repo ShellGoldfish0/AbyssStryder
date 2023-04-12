@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Important_Scenes/Levels/Handmades/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Important_Scenes/Reusable/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Important_Scenes/Levels/Handmades/End Rooms/Boss_Room.gd" type="Script" id=3]
+[ext_resource path="res://Important_Scenes/Reusable/Torch.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 58.5, 54.5 )
@@ -29,10 +30,6 @@ position = Vector2( 962, 665 )
 
 [node name="Position2D" type="Position2D" parent="EnemyPositions" index="0"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
-position = Vector2( 248, 194 )
-shape = SubResource( 1 )
-
 [node name="Spawn" type="Position2D" parent="." index="6"]
 position = Vector2( 141, 126 )
 
@@ -46,3 +43,20 @@ position = Vector2( 403, 716 )
 
 [node name="Position2D3" type="Position2D" parent="Health" index="2"]
 position = Vector2( 1340, 911 )
+
+[node name="Torch" parent="Lights" index="0" instance=ExtResource( 4 )]
+position = Vector2( 622, 1026 )
+z_index = 2
+
+[node name="Torch2" parent="Lights" index="1" instance=ExtResource( 4 )]
+position = Vector2( 99, 90 )
+
+[node name="Torch3" parent="Lights" index="2" instance=ExtResource( 4 )]
+position = Vector2( 1086, 502 )
+
+[node name="Torch4" parent="Lights" index="3" instance=ExtResource( 4 )]
+position = Vector2( 1393, 644 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
+position = Vector2( 248, 194 )
+shape = SubResource( 1 )

@@ -1218,6 +1218,11 @@ tile_data = PoolIntArray( 8, 3, 4, 9, 3, 196610, 131064, 3, 3, 65543, 3, 4, 6554
 
 [node name="EnemyPositions" type="Node2D" parent="."]
 
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Health" type="Node2D" parent="."]
+z_index = 3
+
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2

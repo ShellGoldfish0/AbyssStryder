@@ -1,29 +1,28 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Important_Scenes/Light.gd" type="Script" id=1]
-[ext_resource path="res://Important_Scenes/Torch.gd" type="Script" id=2]
+[ext_resource path="res://Important_Scenes/Reusable/Torch.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Image_Assets/World/light.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Image_Assets/World/Bm+O0V.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Image_Assets/Items/placeholder_brightmushy.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 37.5, 38.5 )
 
 [node name="Torch" type="StaticBody2D"]
+z_index = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8.00002, 0 )
-scale = Vector2( 0.294118, 0.148 )
+scale = Vector2( 0.0857256, 0.0886863 )
 texture = ExtResource( 4 )
 
 [node name="Light" type="Light2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( -1, 0 )
 scale = Vector2( 0.453125, 0.484375 )
-enabled = false
 texture = ExtResource( 3 )
-texture_scale = 9.16
-color = Color( 0.94902, 0.396078, 0.0313726, 1 )
-energy = 0.74
+texture_scale = 2.96
+color = Color( 0.14902, 0.611765, 0.917647, 1 )
+energy = 1.09
 mode = 2
 shadow_enabled = true
 shadow_gradient_length = 36.2

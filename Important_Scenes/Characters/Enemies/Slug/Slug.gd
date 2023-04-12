@@ -10,6 +10,11 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 	navigation_agent.set_target_location(target_location)
 	mov_direction = position.direction_to(target_location)
+	if mov_direction.x > 0:
+		animated_sprite.flip_h = true
+	elif mov_direction.x < 0:
+		animated_sprite.flip_h = false
+	print(mov_direction)	
 	velocity = mov_direction * max_speed
 	navigation_agent.set_velocity(velocity)
 	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
