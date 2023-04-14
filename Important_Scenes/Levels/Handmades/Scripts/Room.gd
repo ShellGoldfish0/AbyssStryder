@@ -43,7 +43,6 @@ func _spawn_enemies():
 			var rand_enemy = enemies[rand_range(0, enemies.size())].instance()
 			rand_enemy.global_position = enemy_position.global_position
 			call_deferred("add_child", rand_enemy)
-		
 
 func _on_PlayerDetector_body_entered(body: KinematicBody2D):
 	player_detector.queue_free()
