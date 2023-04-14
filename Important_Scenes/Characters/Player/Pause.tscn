@@ -4,6 +4,7 @@
 
 [node name="Pause" type="Node2D"]
 pause_mode = 2
+z_index = 99
 script = ExtResource( 1 )
 
 [node name="Pause" type="Button" parent="."]

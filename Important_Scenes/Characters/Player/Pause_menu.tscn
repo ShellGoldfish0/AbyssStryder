@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Important_Scenes/Reusable/pauseMenu.tscn" type="PackedScene" id=1]
+
+[node name="Z Index" type="Node2D"]
+z_index = 99
+
+[node name="pauseMenu" parent="." instance=ExtResource( 1 )]

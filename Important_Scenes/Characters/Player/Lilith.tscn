@@ -9,7 +9,7 @@
 [ext_resource path="res://Important_Scenes/Reusable/Hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Important_Scenes/Reusable/Hurtbox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Important_Scenes/Characters/Player/Lilith_Hitbox.gd" type="Script" id=9]
-[ext_resource path="res://Important_Scenes/Characters/Player/Pause.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Important_Scenes/Characters/Player/Pause_menu.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Important_Scenes/Characters/Player/HealthBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Important_Scenes/Characters/Player/Player_Stats.tscn" type="PackedScene" id=12]
 
@@ -197,7 +197,7 @@ script = ExtResource( 5 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
 
-[node name="Pause" parent="Camera2D" index="0" instance=ExtResource( 10 )]
+[node name="Z Index" parent="Camera2D" index="0" instance=ExtResource( 10 )]
 
 [node name="Light2D" type="Light2D" parent="." index="5"]
 position = Vector2( 0, -1 )
