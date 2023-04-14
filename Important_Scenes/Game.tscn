@@ -16,4 +16,4 @@ script = ExtResource( 1 )
 color = Color( 0.286275, 0.243137, 0.243137, 1 )
 
 [connection signal="save_detected" from="." to="Rooms" method="_on_Game_save_detected"]
-[connection signal="save_not_found" from="." to="Rooms" method="_on_Game_save_not_found"]
+[connection signal="save_not_found" from="." to="." method="_on_Game_save_not_found"]

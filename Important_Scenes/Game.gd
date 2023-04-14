@@ -9,8 +9,8 @@ signal save_not_found
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Save.load()
-	if Save.player.Room != null:
+	#Save.load()
+	if Save.player.Room_Number != null:
 		print("Save was found!")
 		emit_signal("save_detected")
 	else:
@@ -19,3 +19,7 @@ func _ready():
 
 	
 		
+
+
+func _on_Game_save_not_found():
+	pass # Replace with function body.

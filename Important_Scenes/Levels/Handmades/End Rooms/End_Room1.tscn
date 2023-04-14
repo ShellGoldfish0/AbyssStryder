@@ -30,20 +30,6 @@ position = Vector2( 962, 665 )
 
 [node name="Position2D" type="Position2D" parent="EnemyPositions" index="0"]
 
-[node name="Spawn" type="Position2D" parent="." index="6"]
-position = Vector2( 141, 126 )
-
-[node name="Health" type="Node2D" parent="." index="7"]
-
-[node name="Position2D" type="Position2D" parent="Health" index="0"]
-position = Vector2( 1325, 403 )
-
-[node name="Position2D2" type="Position2D" parent="Health" index="1"]
-position = Vector2( 403, 716 )
-
-[node name="Position2D3" type="Position2D" parent="Health" index="2"]
-position = Vector2( 1340, 911 )
-
 [node name="Torch" parent="Lights" index="0" instance=ExtResource( 4 )]
 position = Vector2( 622, 1026 )
 z_index = 2
@@ -56,6 +42,21 @@ position = Vector2( 1086, 502 )
 
 [node name="Torch4" parent="Lights" index="3" instance=ExtResource( 4 )]
 position = Vector2( 1393, 644 )
+
+[node name="Spawn" type="Position2D" parent="." index="6"]
+position = Vector2( 141, 126 )
+
+[node name="Health" parent="." index="7"]
+z_index = 0
+
+[node name="Position2D" type="Position2D" parent="Health" index="0"]
+position = Vector2( 1325, 403 )
+
+[node name="Position2D2" type="Position2D" parent="Health" index="1"]
+position = Vector2( 403, 716 )
+
+[node name="Position2D3" type="Position2D" parent="Health" index="2"]
+position = Vector2( 1340, 911 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2( 248, 194 )

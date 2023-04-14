@@ -7,8 +7,7 @@ var player = {
 	"Health": 100,
 	"Damage": 4,
 	"Speed": 1000,
-	"Room": null,
-	"Room_Number": null,
+	"Room_Number": 0,
 }
 
 

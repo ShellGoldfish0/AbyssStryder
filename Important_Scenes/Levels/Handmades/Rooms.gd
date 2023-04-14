@@ -20,9 +20,9 @@ func _ready():
 func _spawn_rooms(save: bool):
 	var room
 	randomize() #ENSURES COMPLETE RANDOMNESS
-	room_count +=1
+	
 	if save == true:
-		room_count = Save.player.Room_Number
+		room_count = Save.player.Room_Number -1
 		print(room_count)
 		
 	if room_count == 0:
@@ -40,8 +40,9 @@ func _spawn_rooms(save: bool):
 	player.position = room_instance.get_node("Spawn").position
 	previous_room = room_instance
 	Save.player.Room_Number = room_count
+	room_count +=1
 	Save.save()
-	print(Save.player.Room)
+	
 	
 #END SPAWN_ROOMS FUNCTION
 
