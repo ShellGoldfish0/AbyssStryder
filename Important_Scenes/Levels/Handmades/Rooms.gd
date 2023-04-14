@@ -22,7 +22,7 @@ func _spawn_rooms(save: bool):
 	randomize() #ENSURES COMPLETE RANDOMNESS
 	
 	if save == true:
-		room_count = Save.player.Room_Number -1
+		room_count = Save.player.Room_Number 
 		print(room_count)
 		
 	if room_count == 0:
