@@ -10,5 +10,6 @@ func _on_Descender_body_entered(body):
 	var roomgen = get_parent().get_parent()
 	roomgen.delete()
 	roomgen._spawn_rooms()
+	Save.save(Save.player)
 	
 	

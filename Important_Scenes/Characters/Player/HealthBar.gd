@@ -10,5 +10,5 @@ func _on_max_health_updated(max_health):
 	
 	
 func _ready():
-	_on_max_health_updated(Stats.max_health)
+	_on_max_health_updated(Save.player.Max_Health)
 	

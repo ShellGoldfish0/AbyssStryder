@@ -80,10 +80,7 @@ func take_damage(dam: int) ->int:
 		queue_free()
 	return stats.health
 
-func on_death():
-	max_speed = 0
-	animation_player.play("death")
-	$Light2D.enabled = true
+
 	
 func set_spawn_location():
 	spawn_position = position

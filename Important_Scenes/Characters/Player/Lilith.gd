@@ -6,13 +6,12 @@ var stats = Stats
 
 
 func _ready():
-	
-	Stats.set_max_health(100)
-	Stats.set_health(100)
+	pass
+
 func _physics_process(delta: float) ->void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position.normalized())
 	
-	#Stab.knockback_direction = mouse_direction
+	
 	
 	if mouse_direction.x > position.x and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
@@ -41,8 +40,8 @@ func get_input() -> void:
 
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
 func take_damage(dam:int) ->void:
-	Stats.health -= dam
-	$HealthBar._on_health_updated(Stats.health)
+	Save.player.Health = Save.player.Health - dam
+	$HealthBar._on_health_updated(Save.player.Health)
 #END TAKE_DAMAGE FUNCTION
 
 

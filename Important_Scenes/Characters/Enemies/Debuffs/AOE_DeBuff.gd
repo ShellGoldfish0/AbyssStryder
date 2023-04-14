@@ -8,17 +8,13 @@ var debuff_list = ["max_speed", "max_health"]
 var debuff
 var value
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 
 
 func _on_AOE_Debuff_body_entered(body):
 	if debuff == "max_speed":
 		previous_stat_value = body.get(debuff)
 		body.max_speed = value
+		
 	
 
 
@@ -28,10 +24,10 @@ func _on_AOE_Debuff_body_exited(body):
 	if debuff == "max_speed":
 		body.max_speed = previous_stat_value
 	if debuff == "max_health":
-		Stats.set_health(Stats.health - value)
+		Save.player.Health = Save.player.Health - value
 		var temp_update = body.get_node("HealthBar")
-		temp_update._on_max_health_updated(Stats.max_health)
-		temp_update._on_health_updated(Stats.health)
+		temp_update._on_max_health_updated(Save.player.Max_Health)
+		temp_update._on_health_updated(Save.player.Health)
 	
 
 	

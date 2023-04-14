@@ -14,7 +14,7 @@ func _physics_process(_delta):
 		animated_sprite.flip_h = true
 	elif mov_direction.x < 0:
 		animated_sprite.flip_h = false
-	print(mov_direction)	
+		
 	velocity = mov_direction * max_speed
 	navigation_agent.set_velocity(velocity)
 	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
@@ -22,6 +22,17 @@ func _physics_process(_delta):
 	if $PlayerDetect.overlaps_body(player) == false:
 			target_location = spawn_position
 	 
+	
+
+func take_damage(dam: int) ->int:
+	$EnemyStats.health -= dam
+	if $EnemyStats.health <= 0:
+		if .has_method("on_death") == true:
+			on_death()
+		var temp = get_parent()
+		temp._on_enemy_killed()
+	return stats.health
+
 func on_death():
 	max_speed = 0
 	animation_player.play("death")
