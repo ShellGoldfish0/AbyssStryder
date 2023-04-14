@@ -41,9 +41,7 @@ func get_input() -> void:
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
 func take_damage(dam:int) ->void:
 	Save.player.Health = Save.player.Health - dam
-	Save.save()
 	$HealthBar._on_health_updated(Save.player.Health)
-	
 #END TAKE_DAMAGE FUNCTION
 
 

@@ -12,67 +12,34 @@ var room_count = 0
 
 #READY FUNCTION - RUNS THIS AS SOON AS SCRIPT IS LOADED
 func _ready():
-	pass
+	_spawn_rooms()
 #END READY FUNCTION
 
 
 #SPAWN_ROOMS FUNCTION - USES A LOOP TO DETERMINE WHICH ROOMS TO SPAWN, RANDOMLY PICKS THEM AND THEN ADDS THEM TO THE LEVEL
-func _spawn_rooms(save: bool):
-	var room
+func _spawn_rooms():
 	randomize() #ENSURES COMPLETE RANDOMNESS
-	room_count +=1
-	if save == true:
-		room_count = Save.player.Room_Number
-		print(room_count)
-		
+	var room: Node2D
 	if room_count == 0:
-		room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()]
+		room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instance()
 	else:
 		if room_count < num_rooms:
-			room = MID_ROOMS[randi() % MID_ROOMS.size()]
+			room = MID_ROOMS[randi() % MID_ROOMS.size()].instance()
 			if room == previous_room:
-				room = MID_ROOMS[randi() % MID_ROOMS.size()]
+				room = MID_ROOMS[randi() % MID_ROOMS.size()].instance()
 		else:
-			room = END_ROOMS[randi() % END_ROOMS.size()]
-			print(room)
-	var room_instance = room.instance()
-	add_child(room_instance)
-	player.position = room_instance.get_node("Spawn").position
-	previous_room = room_instance
-	Save.player.Room_Number = room_count
-	Save.save()
-	print(Save.player.Room)
-	
+			room = END_ROOMS[randi() % END_ROOMS.size()].instance()
+	add_child(room)
+	Save.level.Room = room
+	player.position = room.get_node("Spawn").position
+	previous_room = room
+	room_count +=1
 #END SPAWN_ROOMS FUNCTION
 
 #DELETE FUNCTION - DELETES PREVIOUS ROOM
 func delete():
 	previous_room.queue_free()
 #END DELETE FUNCTION
-
-
-
-
-func _on_Game_save_detected():
-	_spawn_rooms(true)
-
-
-func _on_Game_save_not_found():
-	_spawn_rooms(false)
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
 
 #RANDOM GENERATION SCRIPT - FOR SAFEKEEPING AND QUICK RE-INSTANTIATION
 """"
