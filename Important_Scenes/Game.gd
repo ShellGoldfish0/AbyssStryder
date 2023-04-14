@@ -1,6 +1,7 @@
 extends Node
 
-
+signal save_detected
+signal save_not_found
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,7 +9,13 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#if Save.load():
-	#	Save.load()
-	#	print(Save.player.Health)
-	pass
+	Save.load()
+	if Save.player.Room != null:
+		print("Save was found!")
+		emit_signal("save_detected")
+	else:
+		print("Save was not found!")
+		emit_signal("save_not_found")
+
+	
+		
