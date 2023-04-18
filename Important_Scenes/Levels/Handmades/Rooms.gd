@@ -25,6 +25,7 @@ func _spawn_rooms(save: bool):
 		room_count = Save.player.Room_Number 
 		print(room_count)
 		
+		
 	if room_count == 0:
 		room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()]
 	else:

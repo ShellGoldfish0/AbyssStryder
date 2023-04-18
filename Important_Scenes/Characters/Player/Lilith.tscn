@@ -230,7 +230,10 @@ margin_bottom = -151.0
 
 [node name="Stats" parent="." index="9" instance=ExtResource( 12 )]
 
-[node name="Pause Menu" parent="." index="10" instance=ExtResource( 10 )]
+[node name="PauseZ" type="Node2D" parent="." index="10"]
+z_index = 20
+
+[node name="Pause Menu" parent="PauseZ" index="0" instance=ExtResource( 10 )]
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]

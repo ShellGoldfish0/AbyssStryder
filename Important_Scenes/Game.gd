@@ -21,5 +21,3 @@ func _ready():
 		
 
 
-func _on_Game_save_not_found():
-	pass # Replace with function body.
