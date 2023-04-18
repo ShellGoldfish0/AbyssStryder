@@ -1,6 +1,6 @@
 extends Character
 
-onready var Stab = $Hitbox
+var ULT = load("res://Important_Scenes/Characters/Player/Lilith_Ult.tscn")
 onready var hurtbox = get_node("Hurtbox")
 var stats = Stats
 
@@ -35,7 +35,7 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
 	if Input.is_action_pressed("ui_attack"):
-		pass
+		launch_ult()
 #END GET_INPUT FUNCTION
 
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
@@ -45,6 +45,14 @@ func take_damage(dam:int) ->void:
 	$HealthBar._on_health_updated(Save.player.Health)
 	
 #END TAKE_DAMAGE FUNCTION
+
+#START ULT FUNCTION - ULTIMATE ATTACK
+func launch_ult():
+	var placement = get_global_mouse_position()
+	var Ult = ULT.instance()
+	Ult.position = placement
+	get_parent().add_child(Ult)
+	
 
 
 
