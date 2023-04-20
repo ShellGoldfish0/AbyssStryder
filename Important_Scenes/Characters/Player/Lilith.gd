@@ -35,10 +35,10 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
 	if Input.is_action_pressed("ui_attack"):
-		if $Ult_Timer.is_stopped():
-			launch_ult()
-		else:
-			print("not charged yet")
+		#if $Ult_Timer.is_stopped():
+		launch_ult()
+		#else:
+			#print("not charged yet")
 #END GET_INPUT FUNCTION
 
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
