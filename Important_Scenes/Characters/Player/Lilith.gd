@@ -35,7 +35,10 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
 	if Input.is_action_pressed("ui_attack"):
-		launch_ult()
+		if $Ult_Timer.is_stopped():
+			launch_ult()
+		else:
+			print("not charged yet")
 #END GET_INPUT FUNCTION
 
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
@@ -52,6 +55,8 @@ func launch_ult():
 	var Ult = ULT.instance()
 	Ult.position = placement
 	get_parent().add_child(Ult)
+	$Ult_Timer.start()
+	
 	
 
 

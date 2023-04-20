@@ -235,6 +235,10 @@ z_index = 20
 
 [node name="Pause Menu" parent="PauseZ" index="0" instance=ExtResource( 10 )]
 
+[node name="Ult_Timer" type="Timer" parent="." index="11"]
+wait_time = 90.0
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
