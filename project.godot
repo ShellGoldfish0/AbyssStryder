@@ -49,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Important_Scenes/Reusable/Hurtbox.gd"
 }, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Important_Scenes/Items/Item.gd"
+}, {
+"base": "Node2D",
+"class": "ItemContainer",
+"language": "GDScript",
+"path": "res://Important_Scenes/Reusable/Chest.gd"
+}, {
 "base": "Node",
 "class": "enemy_stats",
 "language": "GDScript",
@@ -63,6 +73,8 @@ _global_script_class_icons={
 "FiniteStateMachine": "",
 "Hitbox": "",
 "Hurtbox": "",
+"Item": "",
+"ItemContainer": "",
 "enemy_stats": ""
 }
 

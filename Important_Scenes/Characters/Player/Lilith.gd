@@ -36,9 +36,18 @@ func get_input() -> void:
 		mov_direction += Vector2.LEFT
 	if Input.is_action_pressed("ui_attack"):
 		#if $Ult_Timer.is_stopped():
-		launch_ult()
 		#else:
 			#print("not charged yet")
+		launch_ult()
+	if Input.is_action_just_pressed("Interact") and $RayCast2D.is_colliding():
+		print("pressed")
+		var collider = $RayCast2D.get_collider()
+		
+		if collider.has_method("_on_interact") :
+			collider._on_interact()
+		else:
+			return
+		
 #END GET_INPUT FUNCTION
 
 #START TAKE_DAMAGE FUNCTION - USED TO TAKE DAMAGE
@@ -56,6 +65,12 @@ func launch_ult():
 	Ult.position = placement
 	get_parent().add_child(Ult)
 	$Ult_Timer.start()
+	
+func update_damage():
+	$Hitbox.damage = Save.player.Damage
+	
+func update_speed(val):
+	max_speed = val
 	
 	
 

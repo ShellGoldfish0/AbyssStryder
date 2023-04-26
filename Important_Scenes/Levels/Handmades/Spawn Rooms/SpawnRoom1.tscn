@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Important_Scenes/Levels/Handmades/Room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Important_Scenes/Reusable/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Important_Scenes/Levels/RandomLevel/Descender.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Important_Scenes/Characters/Enemies/Wendigo/Wendigo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Important_Scenes/Items/DamageIncrease.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 254.5, 90.375 )
@@ -37,3 +38,8 @@ z_index = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2( 317, 154 )
 shape = SubResource( 1 )
+
+[node name="Damage" parent="." index="11" instance=ExtResource( 5 )]
+position = Vector2( 96, 597 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 3
