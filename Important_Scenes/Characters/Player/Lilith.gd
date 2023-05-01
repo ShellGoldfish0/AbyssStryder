@@ -65,14 +65,17 @@ func launch_ult():
 	Ult.position = placement
 	get_parent().add_child(Ult)
 	$Ult_Timer.start()
-	
+#END ULT FUNCTION
+
+#START UPDATE_DAMAGE FUNCTION - ALLOWS DAMAGE VALUES TO BE UPDATED
 func update_damage():
 	$Hitbox.damage = Save.player.Damage
-	
+#END  UPDATE_DAMAGE FUNCTION
+
+#START UPDATE_SPEED FUNCTION - UPDATES PLAYERS MAX SPEED
 func update_speed(val):
 	max_speed = val
-	
-	
+#END UPDATE_SPEED FUNCTION
 
 
 

@@ -2,6 +2,9 @@ tool
 extends Node
 
 
+#RANDOMIZER 
+
+
 # the percent chance something happens
 func chance(num):
 	randomize()

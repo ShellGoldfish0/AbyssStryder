@@ -1,6 +1,6 @@
 extends Camera2D
 
-
+#LEGACY SCRIPT - NO LONGER IN USE.
 
 var player
 

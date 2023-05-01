@@ -9,6 +9,7 @@ onready var collisionShape = $CollisionShape2D
 signal invincibility_started
 signal invincibility_ended
 
+#SETS INVINCIBLE
 func set_invincible(value):
 	invincible = value
 	if invincible == true:
@@ -16,6 +17,8 @@ func set_invincible(value):
 	else:
 		emit_signal("invincibility_ended")
 
+
+#RUNS INVINCIBILTY
 func start_invincibility(duration):
 	self.invincible = true
 	timer.start(duration)
@@ -34,7 +37,7 @@ func _on_Hurtbox_invincibility_started():
 func _on_Hurtbox_invincibility_ended():
 	pass # Replace with function body.
 
-
+#DETECTS THEN TAKES DAMAGE
 func _on_Hurtbox_area_entered(hitbox: Area2D) -> void:
 	owner.take_damage(hitbox.damage)
 	start_invincibility(0.6)

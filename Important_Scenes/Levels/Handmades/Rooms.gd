@@ -19,7 +19,7 @@ func _ready():
 #SPAWN_ROOMS FUNCTION - USES A LOOP TO DETERMINE WHICH ROOMS TO SPAWN, RANDOMLY PICKS THEM AND THEN ADDS THEM TO THE LEVEL
 func _spawn_rooms(save: bool):
 	var room
-	randomize() #ENSURES COMPLETE RANDOMNESS
+	randomize()
 	
 	if save == true:
 		room_count = Save.player.Room_Number 
@@ -43,8 +43,6 @@ func _spawn_rooms(save: bool):
 	Save.player.Room_Number = room_count
 	room_count +=1
 	Save.save()
-	
-	
 #END SPAWN_ROOMS FUNCTION
 
 #DELETE FUNCTION - DELETES PREVIOUS ROOM
@@ -54,16 +52,14 @@ func delete():
 
 
 
-
+#CHECKS FOR SAVE DATA NAD BOOTS GAME ACCODINGLY
 func _on_Game_save_detected():
 	_spawn_rooms(true)
 
 
 func _on_Game_save_not_found():
 	_spawn_rooms(false)
-	
-	
-
+#END CHECKS
 
 
 

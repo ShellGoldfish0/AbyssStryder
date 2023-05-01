@@ -1,5 +1,7 @@
 extends Node
 
+#DEPRECATED - KEPT FOR CROSS REFERENCE.
+
 export(int) var max_health = 100 setget set_max_health
 var health = max_health setget set_health
 

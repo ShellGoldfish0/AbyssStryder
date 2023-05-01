@@ -15,10 +15,12 @@ onready var animated_sprite = $AnimatedSprite
 var mov_direction: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 
+#RUNS EVERY SECOND, GETS VELOCITY FOR MOVEMENT.
 func _physics_process(_delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	velocity = lerp(velocity, Vector2.ZERO, FRICTION)
 
+#ALLOWS FOR BASE MOVEMENT
 func move() -> void:
 	mov_direction = mov_direction.normalized()
 	velocity += mov_direction * acceleration
