@@ -12,7 +12,7 @@ func _on_Health_Crystal_body_entered(player: KinematicBody2D) -> void:
 	if Save.player.Health > Save.player.Max_Health:
 		Save.player.Health = Save.player.Max_Health
 	
-	var temp_update = player.get_node("HealthBar")
+	var temp_update = player.get_node("Node2D/HealthBar")
 	temp_update._on_max_health_updated(Save.player.Max_Health)
 	temp_update._on_health_updated(Save.player.Health)
 	

@@ -34,11 +34,20 @@ func get_input() -> void:
 		mov_direction += Vector2.RIGHT
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_attack"):
+	if Input.is_action_pressed("ui_ult"):
 		#if $Ult_Timer.is_stopped():
 		#else:
 			#print("not charged yet")
 		launch_ult()
+	if Input.is_action_just_pressed("ui_attack"):
+		if $Timer.is_stopped():
+			$Timer2.start()
+			$Hitbox.monitorable = true
+			$Hitbox.monitoring = true
+			
+			
+			
+			
 	if Input.is_action_just_pressed("Interact") and $RayCast2D.is_colliding():
 		print("pressed")
 		var collider = $RayCast2D.get_collider()
@@ -54,11 +63,11 @@ func get_input() -> void:
 func take_damage(dam:int) ->void:
 	Save.player.Health = Save.player.Health - dam
 	Save.save()
-	$HealthBar._on_health_updated(Save.player.Health)
+	$Node2D/HealthBar._on_health_updated(Save.player.Health)
 	
 #END TAKE_DAMAGE FUNCTION
 
-#START ULT FUNCTION - ULTIMATE ATTACK
+#START ULT FUNCTION - ULTIMATE ATTACK --- CAN ADD ADITIONAL WAYS TO U;LT OR DIFFERNT KINDS, WITH A PARAMATER?
 func launch_ult():
 	var placement = get_global_mouse_position()
 	var Ult = ULT.instance()
@@ -84,3 +93,11 @@ func update_speed(val):
 
 
 
+
+
+
+
+
+func _on_Timer2_timeout():
+	$Hitbox.monitorable = false
+	$Hitbox.monitoring = false
