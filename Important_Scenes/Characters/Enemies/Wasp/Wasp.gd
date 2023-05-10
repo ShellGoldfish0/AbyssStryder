@@ -29,11 +29,11 @@ func _physics_process(delta: float) -> void:
 	if target != null and target == player:
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		$RayCast2D.global_rotation = angle_to_target
-	if not _arrived_at_location():
-		velocity = move_and_slide(velocity)
+	#if not _arrived_at_location():
+		#velocity = move_and_slide(velocity)
 	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
 		target_location = body.position                    #THEN IDENTIFIES AND SETS THE TARGET AS AN ENEMY
-		navigation_agent.set_target_location(target_location)
+		#navigation_agent.set_target_location(target_location)
 		if $PlayerDetect.overlaps_body(player) == false:
 			state = "wander"
 		else:
@@ -45,10 +45,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide(Vector2(cos(rotation), sin(rotation)) * 100)
 		
 	elif state == "attack":
-		navigation_agent.set_target_location(target_location)
+		#navigation_agent.set_target_location(target_location)
 		mov_direction = position.direction_to(target_location)
 		velocity = mov_direction * max_speed						#JUST CHASES YOU
-		navigation_agent.set_velocity(velocity)
+		#navigation_agent.set_velocity(velocity)
 		if $Attack_Timer.is_stopped():
 			var bullet = BULLET.instance()
 			get_parent().add_child(bullet)

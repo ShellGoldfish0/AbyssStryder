@@ -3,25 +3,26 @@ extends Enemy
 onready var animation = $AnimationPlayer
 onready var enemy_stats = $EnemyStats
 
+
 func _ready():
 	animation_player.play("test")
-func _physics_process(_delta):
-	if position == spawn_position:
-		velocity = Vector2.ZERO
-	navigation_agent.set_target_location(target_location)
-	mov_direction = position.direction_to(target_location)
-	if mov_direction.x > 0:
-		animated_sprite.flip_h = true
-	elif mov_direction.x < 0:
-		animated_sprite.flip_h = false
+	if get_tree().has_group("nav"):
+		nav = get_tree().get_nodes_in_group("nav")[0]
+	path = []
 		
-	velocity = mov_direction * max_speed
-	navigation_agent.set_velocity(velocity)
-	for body in $PlayerDetect.get_overlapping_bodies():   # Check to see that overlap is Player layer
-		target_location = body.position
-	if $PlayerDetect.overlaps_body(player) == false:
-			target_location = spawn_position
-	 
+func _physics_process(_delta):
+	create_path()
+	goto()
+	
+
+
+func create_path():
+	if nav != null and player != null:
+		path = nav.get_simple_path(global_position, player.global_position, false)
+		
+func goto():
+	if path.size() > 0 and path != null:
+		velocity = global_position.direction_to(path[1]) * max_speed
 	
 
 func take_damage(dam: int) ->int:
@@ -52,19 +53,21 @@ func _on_AnimationPlayer_animation_finished(anim):
 
 
 
-	
-
 
 func _on_EnemyStats_no_health():
-	on_death()
-
-
-func _on_PlayerDetect_area_entered(area):
 	pass
+
+
 	
 
 
 func _on_PlayerDetect_body_entered(body):
-	player = body
-	set_target_location(player.position)
+	if get_tree().has_group("Player"):
+		player = get_tree().get_nodes_in_group("Player")[0]
 	
+
+
+
+
+func _on_Hitbox_area_entered(area):
+	take_damage(9999)

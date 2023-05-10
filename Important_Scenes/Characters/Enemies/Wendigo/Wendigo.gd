@@ -13,7 +13,6 @@ var prev_speed = 150
 
 func _ready():
 	state = "I"
-	navigation_agent = $NavigationAgent2D
 	spawn_position = position
 	target = spawn_position
 	
@@ -24,7 +23,7 @@ func _physics_process(delta):
 	target_location = target
 	mov_direction = position.direction_to(target)
 	velocity = mov_direction * max_speed
-	navigation_agent.set_velocity(velocity)
+	#navigation_agent.set_velocity(velocity)
 	
 	for body in $PlayerDetector.get_overlapping_bodies():   # Check to see that overlap is Player layer
 		target = body.position

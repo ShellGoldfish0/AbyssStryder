@@ -441,4 +441,5 @@ shape = SubResource( 59 )
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_PlayerDetect_body_entered"]

@@ -25,7 +25,7 @@ func _on_AOE_Debuff_body_exited(body):
 		body.max_speed = previous_stat_value
 	if debuff == "max_health":
 		Save.player.Health = Save.player.Health - value
-		var temp_update = body.get_node("HealthBar")
+		var temp_update = body.get_node("Node2D/HealthBar")
 		temp_update._on_max_health_updated(Save.player.Max_Health)
 		temp_update._on_health_updated(Save.player.Health)
 	

@@ -9,6 +9,7 @@ script = ExtResource( 3 )
 
 [node name="Rooms" type="Node" parent="."]
 script = ExtResource( 1 )
+num_rooms = 10
 
 [node name="Lilith" parent="." instance=ExtResource( 2 )]
 

@@ -87,17 +87,6 @@ func update_speed(val):
 #END UPDATE_SPEED FUNCTION
 
 
-
-
-
-
-
-
-
-
-
-
-
 func _on_Timer2_timeout():
 	$Hitbox.monitorable = false
 	$Hitbox.monitoring = false
